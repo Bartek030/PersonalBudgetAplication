@@ -19,8 +19,8 @@ function countingDown()
 		let day = currentDate.getDay();
 		if (day<10) day = "0"+day;
 
-		document.getElementById("date").innerHTML = "Data:&emsp;&nbsp;" + day + "-" + month + "-" + year;
-		document.getElementById("time").innerHTML = "Godzina:&emsp;" + hour + ":" + minute + ":" + second;
+		$('#date').html("Data:&emsp;&nbsp;" + day + "-" + month + "-" + year);
+		$('#time').html("Godzina:&emsp;" + hour + ":" + minute + ":" + second);
 		 
 		setTimeout("countingDown()",1000);
 	}
