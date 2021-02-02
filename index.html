@@ -14,12 +14,22 @@
 	<!-- FONTS-->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Russo+One&display=swap" rel="stylesheet"> 
+
+	<script src="js/timer.js"></script>
 	
 </head>
 
 <body>
 	<header>
-		<h1><i class="demo-icon icon-wallet"></i>Budżet Osobisty</h1>
+		<div class="header_container">
+			<div class="header_image"><i class="demo-icon icon-wallet"></i></div>
+			<div class="header_text"><h1>Budżet Osobisty</h1></div>
+			<div class="header_date">
+				<div id="date"></div>
+				<div id="time"></div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
 	</header>
 	<div id="mainPage">
 		<div class="mainPage_panel">
@@ -35,10 +45,12 @@
 		<div style="clear: both;"></div>
 	</div>
 	<footer>
-		2021 &copy; &emsp;Autor: Bartłomiej Święs. &emsp;&emsp;
+		2021 &copy; &emsp;Autor:&nbsp;&nbsp;&nbsp; Bartłomiej Święs. &emsp;&emsp;
 		<i class="demo-icon icon-mail"></i>
-		Kontakt: bartlomiejswies@gmail.com
+		&nbsp;Kontakt:&nbsp;&nbsp;bartlomiejswies@gmail.com
 	</footer>
-
+	<script>
+		countingDown();
+	</script>
 </body>
 </html>

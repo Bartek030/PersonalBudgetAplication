@@ -2,6 +2,27 @@ body {
     /* Background pattern from Toptal Subtle Patterns */
     background-image: url("../img/footer_lodyas.png");
     font-family: 'Lato', sans-serif;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header_container {
+    width: 62%;
+    min-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.header_image {
+    float: left;
+    color: yellow;
+    margin-top: 46px;
+}
+
+.header_text {
+    float: left;
 }
 
 h1 {
@@ -10,19 +31,29 @@ h1 {
     font-size: 64px;
     text-align: center;
     color: yellow;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header_date {
+    float: left;
+    font-size: 24px;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    letter-spacing: 2px;
 }
 
 #mainPage {
     background-color: #222222;
     border: 2px solid white;
     border-radius: 10px;
-    color: white;
     letter-spacing: 2px;
     text-align: justify;
     width: 62%;
     margin-left: auto;
     margin-right: auto;
-    min-width: 800px;
+    min-width: 1000px;
 }
 
 .mainPage_panel {
@@ -58,12 +89,13 @@ input[type=submit] {
 }
 
 footer {
-    /*border: 2px solid white;*/
+    position: fixed;
     width: 100%;
+    min-width: 1000px;
     bottom: 0;
-    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 15px;
     font-size: 24px;
     text-align: center;
-    padding-top: 30px;
-    color: white;
+    background-color: #222222;
 }
