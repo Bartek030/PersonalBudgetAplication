@@ -15,8 +15,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Russo+One&display=swap" rel="stylesheet"> 
 
-	<script src="js/timer.js"></script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -31,6 +30,7 @@
 			<div style="clear: both;"></div>
 		</div>
 	</header>
+
 	<div id="mainPage">
 		<div class="mainPage_panel">
 				<h2>Czym jest aplikacja Budżet Osobisty?</h2>
@@ -38,17 +38,22 @@
 		</div>
 		<div class="mainPage_panel">
 			<form>
-				<input type="submit" value="Zaloguj się" />
+				<div class="mainPage_panel_buttonText">Aby rozpocząć:</div>
+				<div><input type="submit" value="Zaloguj się" /></div>
+				<div>Lub jeśli nie masz jeszcze konta:</div>
 				<input type="submit" value="Zarejestruj się" />
 			</form>
 		</div>
 		<div style="clear: both;"></div>
 	</div>
+
 	<footer>
 		2021 &copy; &emsp;Autor:&nbsp;&nbsp;&nbsp; Bartłomiej Święs. &emsp;&emsp;
 		<i class="demo-icon icon-mail"></i>
 		&nbsp;Kontakt:&nbsp;&nbsp;bartlomiejswies@gmail.com
 	</footer>
+
+	<script src="js/main.js"></script>
 	<script>
 		countingDown();
 	</script>

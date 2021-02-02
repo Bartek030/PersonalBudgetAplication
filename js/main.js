@@ -1,22 +1,22 @@
 function countingDown()
 	{
-		var currentDate = new Date();
+		let currentDate = new Date();
 		
-		var hour = currentDate.getHours();
+		let hour = currentDate.getHours();
 		if (hour<10) hour = "0"+hour;
 		
-		var minute = currentDate.getMinutes();
+		let minute = currentDate.getMinutes();
 		if (minute<10) minute = "0"+minute;
 		
-		var second = currentDate.getSeconds();
+		let second = currentDate.getSeconds();
 		if (second<10) second = "0"+second;
 
-		var year = currentDate.getFullYear();
+		let year = currentDate.getFullYear();
 
-		var month = currentDate.getMonth() + 1;
+		let month = currentDate.getMonth() + 1;
 		if (month<10) month = "0"+month;
 
-		var day = currentDate.getDay();
+		let day = currentDate.getDay();
 		if (day<10) day = "0"+day;
 
 		document.getElementById("date").innerHTML = "Data:&emsp;&nbsp;" + day + "-" + month + "-" + year;
@@ -24,3 +24,4 @@ function countingDown()
 		 
 		setTimeout("countingDown()",1000);
 	}
+

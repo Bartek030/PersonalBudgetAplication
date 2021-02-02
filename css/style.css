@@ -38,6 +38,7 @@ h1 {
 .header_date {
     float: left;
     font-size: 24px;
+    font-weight: bold;
     position: absolute;
     right: 0;
     top: 50px;
@@ -48,29 +49,35 @@ h1 {
     background-color: #222222;
     border: 2px solid white;
     border-radius: 10px;
-    letter-spacing: 2px;
-    text-align: justify;
+    letter-spacing: 1px;
     width: 62%;
     margin-left: auto;
     margin-right: auto;
     min-width: 1000px;
+    text-align: center;
 }
 
 .mainPage_panel {
     float: left;
-    text-align: center;
     width: 48%;
     min-width: 400px;
 }
 
+h2 {
+    padding-left: 10px;
+}
+
 .mainPage_panel p{
-    text-align: center;
     font-size: 20px;
     margin-top: 50px;
     padding-bottom: 50px;
     text-align: justify;
     letter-spacing: 1px;
     padding: 10px 50px;
+}
+
+.mainPage_panel_buttonText {
+    margin-top: 20px;
 }
 
 input[type=submit] {
@@ -84,8 +91,17 @@ input[type=submit] {
     cursor: pointer;
     letter-spacing: 2px;
     outline: none;
-    margin-top: 40px;
+    margin-top: 15px;
     margin-bottom: 40px;
+}
+
+input[type=submit]:focus {
+    -webkit-box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9); 
+    box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9);
+}
+
+input[type=submit]:hover {
+    background-color: #47c14d;
 }
 
 footer {
@@ -94,8 +110,8 @@ footer {
     min-width: 1000px;
     bottom: 0;
     padding-top: 10px;
-    padding-bottom: 15px;
-    font-size: 24px;
+    padding-bottom: 20px;
+    font-size: 18px;
     text-align: center;
     background-color: #222222;
 }
