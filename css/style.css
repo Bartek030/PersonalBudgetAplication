@@ -113,7 +113,8 @@ input[type=reset] {
     margin-bottom: 25px;
 }
 
-input[type=button]:focus {
+input[type=button]:focus,
+input[type=reset]:focus {
     -webkit-box-shadow: 0px 0px 5px 5px rgba(204,204,204,0.9); 
     box-shadow: 0px 0px 5px 5px rgba(204,204,204,0.9);
 }
@@ -133,10 +134,18 @@ input[type=reset]#mainPage_panel_reset {
     margin-left: 0px;
 }
 
+input[type=reset]#mainPage_panel_reset:hover {
+    background-color: #ffaa11;
+}
+
 input[type=button]#mainPage_panel_back {
     width: 140px;
     background-color: #ff3300;
     margin-left: 20px;
+}
+
+input[type=button]#mainPage_panel_back:hover {
+    background-color: #ff4411;
 }
 
 input[type=text],
