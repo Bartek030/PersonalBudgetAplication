@@ -1,4 +1,4 @@
-function countingDown() {
+function setTime() {
 	let currentDate = new Date();
 	
 	let hour = currentDate.getHours();
@@ -20,6 +20,7 @@ function countingDown() {
 
 	$('#date').html("Data:&emsp;&nbsp;" + day + "-" + month + "-" + year);
 	$('#time').html("Godzina:&emsp;" + hour + ":" + minute + ":" + second);
+	$('#operationDate').val(year + '-' + month + '-' + day);
 		
 	setTimeout("countingDown()",1000);
 }

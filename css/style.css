@@ -14,7 +14,6 @@ body {
     margin-right: auto;
     display: flex;
     flex-direction: column;
-    /*border: 1px solid white;*/
 }
 
 header {
@@ -47,6 +46,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
+    min-width: 500px;
 }
 
 .mainPage_appDescription {
@@ -57,7 +57,7 @@ h1 {
     align-items: center;
 }
 
-.mainPage_appDescription h2 {
+h2 {
     text-align: center;
     letter-spacing: 1px;
 }
@@ -95,17 +95,36 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
-.mainPage_nav {
-    max-width: 20%;
-    min-width: 200px;
+#operationPage_userPanel_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#operationPage {
+    background-color: #222222;
+    min-width: 500px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    box-sizing: border-box;
 }
 
-.mainPage_nav nav > ul {
+.operationPage_nav {
+    width: 100%;
+    min-width: 200px;
+    text-align: center;
+}
+
+.operationPage_nav nav > ul {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -113,15 +132,58 @@ h1 {
     background-color: #36b03c;
 }
 
-.mainPage_nav nav > ul > li {
+.operationPage_nav nav > ul > li {
+    display: inline-block;
     list-style-type: none;
+    padding: 15px 25px;
+    text-align: center;
     font-size: 24px;
-    padding: 15px 10px;
-    border-top: 2px dotted white;
+    border-radius: 10px;
 }
 
-.mainPage_nav nav > ul > li:first-child {
-    border-top: none;
+.operationPage_nav nav > ul > li:hover {
+    background-color: #47c14d;
+    cursor: pointer;
+}
+
+.operationPage_nav nav > ul > li:first-child {
+    border-left: none;
+}
+
+.operationPage_operationPanel form {
+    text-align: center;
+}
+
+#amount_date {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+}
+
+#amount_date div {
+    padding: 0 15px;
+}
+
+#category {
+    text-align: center;
+    border: none;
+    margin: 5px 0;
+}
+
+#category div {
+    display: inline-block;
+    padding: 10px 30px;
+}
+
+#category div label{
+    letter-spacing: 2px;
+}
+
+textarea {
+    margin-bottom: 30px;
+    max-width: 600px;
+    max-height: 200px;
+    width: 80%;
 }
 
 input[type=button],
@@ -177,7 +239,9 @@ input[type=button]#mainPage_panel_back:hover {
 
 input[type=text],
 input[type=password],
-input[type=email] {
+input[type=email],
+input[type=number],
+input[type=date] {
     width: 300px;
     background-color: #eeeeee;
     color: #666;
@@ -193,12 +257,19 @@ input[type=email] {
 }
 
 input[type=text]:focus,
-input[type=password]:focus {
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=date]:focus {
     -webkit-box-shadow: 0px 0px 5px 2px rgba(204,204,204,0.9); 
     box-shadow: 0px 0px 5px 2px rgba(204,204,204,0.9);
     border: 3px solid #36b03c;
     background-color: #eeeeee;
     color: #428c42;
+}
+
+label {
+    letter-spacing: 1px;
 }
 
 footer {

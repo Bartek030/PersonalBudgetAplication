@@ -40,10 +40,29 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="operationPage_userPanel">
-				<h2>WYBIERZ OPCJĘ Z MENU</h2>
+			<div class="operationPage_operationPanel">
+				<h2>DODAJ PRZYCHÓD</h2>
 				<form>
-					
+					<div id="amount_date">
+						<div><label>Kwota: <input type="number" step="0.01" required/></label></div>
+						<div><label>Data: <input id="operationDate" type="date" min="2000-01-01" required/></label></div>
+					</div>
+					<div>
+						<fieldset id="category">
+							<legend>Kategoria:</legend>
+							<div><label><input type="radio" value="1" name="category" checked />Wynagrodzenie</label></div>
+							<div><label><input type="radio" value="2" name="category" />Odsetki bankowe</label></div>
+							<div><label><input type="radio" value="3" name="category" />Sprzedaż</label></div>
+							<div><label><input type="radio" value="4" name="category" />Inne</label></div>
+						</fieldset>
+						<div><label for="comment">Komentarz:</label></div>
+						<textarea name="comment" id="comment" placeholder="max. 300 znaków" rows="4" cols="80" maxlength="300"></textarea>
+						<div id="operationPage_userPanel_buttons">
+							<div><input id="mainPage_panel_logIn" type="button" value="Dodaj" /></div>
+							<div><input id="mainPage_panel_reset" type="reset" value="Wyczyść" /></div>
+							<div><input id="mainPage_panel_back" type="button" value="Anuluj" /></div>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
