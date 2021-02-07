@@ -130,6 +130,8 @@ h2 {
     margin: 0;
     border-radius: 8px;
     background-color: #36b03c;
+    display: flex;
+    justify-content: space-around;
 }
 
 .operationPage_nav nav > ul > li {
@@ -144,10 +146,6 @@ h2 {
 .operationPage_nav nav > ul > li:hover {
     background-color: #47c14d;
     cursor: pointer;
-}
-
-.operationPage_nav nav > ul > li:first-child {
-    border-left: none;
 }
 
 .operationPage_operationPanel form {
