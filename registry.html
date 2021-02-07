@@ -18,51 +18,48 @@
 </head>
 
 <body>
-	<header>
-		<div class="header_container">
+	<div class="container">
+		<header>
 			<div class="header_image"><i class="demo-icon icon-wallet"></i></div>
-			<div class="header_text"><h1>Budżet Osobisty</h1></div>
+			<h1>Budżet Osobisty</h1>
 			<div class="header_date">
 				<div id="date"></div>
 				<div id="time"></div>
 			</div>
-		</div>
-	</header>
+		</header>
 
-	<div id="mainPage">
-		<div class="mainPage_panel">
+		<div id="mainPage">
+			<div class="mainPage_appDescription">
 				<h2>Czym jest aplikacja Budżet Osobisty?</h2>
-				<p>Aplikacja Budżet Osobisty pomoże Ci zarządzać Twoimi finansami. Analizuj swoje przychody i kontroluj swoje wydatki. Zarządzaj efektywnie swoim budżetem i ciesz się zaoszczędzonymi środkami. </p>	
+				<p>Aplikacja Budżet Osobisty pomoże Ci zarządzać Twoimi finansami. Analizuj swoje przychody i&nbsp;kontroluj swoje wydatki. Zarządzaj efektywnie swoim budżetem i&nbsp;ciesz się zaoszczędzonymi środkami.</p>	
+			</div>
+			<div class="mainPage_userPanel">
+				<form>
+					
+					<div><label>Podaj imię: <input type="text" placeholder="imię" /></label></div>
+					<div><label>Podaj hasło: <input type="password" placeholder="hasło" /></label></div>
+					<div><label>Powtórz hasło: <input type="password" placeholder="hasło" /></label></div>
+					<div><label>Podaj adres e-mail: <input type="email" placeholder="hasło" /></label></div>
+					<div id="mainPage_userPanel_buttons">
+						<div><input id="mainPage_panel_logIn" type="button" value="Zarejestruj" /></div>
+						<div><input id="mainPage_panel_reset" type="reset" value="Wyczyść" /></div>
+						<a href="index.html"><div><input id="mainPage_panel_back" type="button" value="Powrót" /></div></a>
+					</div>
+				</form>
+			</div>
 		</div>
-		<div class="mainPage_panel">
-			<form>
-				<div class="mainPage_panel_buttonText">Podaj imię:</div>
-				<div><input type="text" placeholder="imię" /></div>
-				<div class="mainPage_panel_buttonText">Podaj hasło:</div>
-				<div><input type="password" placeholder="hasło" /></div>
-				<div class="mainPage_panel_buttonText">Powtórz hasło:</div>
-				<div><input type="password" placeholder="hasło" /></div>
-				<div class="mainPage_panel_buttonText">Podaj e-mail:</div>
-				<div><input type="email" placeholder="adres e-mail" /></div>
-				<div id="mainPage_panel_buttons">
-					<div><input id="mainPage_panel_logIn" type="submit" value="Zarejestruj" /></div>
-					<div><input id="mainPage_panel_reset" type="reset" value="Wyczyść" /></div>
-					<div><input id="mainPage_panel_back" type="submit" value="Powrót" /></div>
-				</div>
-			</form>
-		</div>
-	</div>
 
-	<footer>
-		2021 &copy; &emsp;Autor:&nbsp;&nbsp;&nbsp; Bartłomiej Święs &emsp;&emsp;
-		<i class="demo-icon icon-mail"></i>
-		&nbsp;Kontakt:&nbsp;&nbsp;bartlomiejswies@gmail.com
-	</footer>
+		<footer>
+			<div>2021&nbsp;&copy;</div> 
+			<div>Autor:&nbsp;&nbsp;Bartłomiej Święs </div>
+			<div><i class="demo-icon icon-mail"></i>&nbsp;Kontakt:&nbsp;&nbsp;bartlomiejswies@gmail.com</div>
+		</footer>
+	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/main.js"></script>
 	<script>
-		countingDown();
+		setTime();
 	</script>
 </body>
 </html>

@@ -14,49 +14,45 @@
 	<!-- FONTS-->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Russo+One&display=swap" rel="stylesheet"> 
-
-	
 </head>
 
 <body>
-	<header>
-		<div class="header_container">
+	<div class="container">
+		<header>
 			<div class="header_image"><i class="demo-icon icon-wallet"></i></div>
-			<div class="header_text"><h1>Budżet Osobisty</h1></div>
+			<h1>Budżet Osobisty</h1>
 			<div class="header_date">
 				<div id="date"></div>
 				<div id="time"></div>
 			</div>
-			<div style="clear: both;"></div>
-		</div>
-	</header>
+		</header>
 
-	<div id="mainPage">
-		<div class="mainPage_panel">
+		<div id="mainPage">
+			<div class="mainPage_appDescription">
 				<h2>Czym jest aplikacja Budżet Osobisty?</h2>
 				<p>Aplikacja Budżet Osobisty pomoże Ci zarządzać Twoimi finansami. Analizuj swoje przychody i&nbsp;kontroluj swoje wydatki. Zarządzaj efektywnie swoim budżetem i&nbsp;ciesz się zaoszczędzonymi środkami. </p>	
+			</div>
+			<div class="mainPage_userPanel">
+				<form>
+					<div class="mainPage_userPanel_buttonText">Aby rozpocząć:</div>
+					<div><a href="login.html"><input type="button" value="Zaloguj się" /></a></div>
+					<div class="mainPage_userPanel_buttonText">Lub jeśli nie masz jeszcze konta:</div>
+					<div><a href="registry.html"><input type="button" value="Zarejestruj się" /></a></div>
+				</form>
+			</div>
 		</div>
-		<div class="mainPage_panel">
-			<form>
-				<div class="mainPage_panel_buttonText">Aby rozpocząć:</div>
-				<div><input type="submit" value="Zaloguj się" /></div>
-				<div class="mainPage_panel_buttonText">Lub jeśli nie masz jeszcze konta:</div>
-				<div><input type="submit" value="Zarejestruj się" /></div>
-			</form>
-		</div>
-		<div style="clear: both;"></div>
-	</div>
 
-	<footer>
-		2021 &copy; &emsp;Autor:&nbsp;&nbsp;&nbsp; Bartłomiej Święs &emsp;&emsp;
-		<i class="demo-icon icon-mail"></i>
-		&nbsp;Kontakt:&nbsp;&nbsp;bartlomiejswies@gmail.com
-	</footer>
+		<footer>
+			<div>2021&nbsp;&copy;</div> 
+			<div>Autor:&nbsp;&nbsp;Bartłomiej Święs </div>
+			<div><i class="demo-icon icon-mail"></i>&nbsp;Kontakt:&nbsp;&nbsp;bartlomiejswies@gmail.com</div>
+		</footer>
+	</div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/main.js"></script>
 	<script>
-		countingDown();
+		setTime();
 	</script>
 </body>
 </html>

@@ -7,18 +7,19 @@ body {
     padding: 0px;
 }
 
-.header_container {
-    width: 62%;
-    min-width: 1000px;
-    max-width: 1500px;
+.container {
+    min-width: 62%;
+    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
     justify-content: flex-start;
-    letter-spacing: 2px;
+    align-items: center;
 }
 
 .header_image {
@@ -28,70 +29,164 @@ body {
 h1 {
     font-family: 'Russo One', sans-serif;
     font-size: 64px;
-    text-align: center;
     color: yellow;
     padding-left: 20px;
+    flex: 1 0 auto;
 }
 
 .header_date {
     font-size: 24px;
     font-weight: bold;
-    position: absolute;
-    right: 0;
 }
 
 #mainPage {
     background-color: #222222;
     border: 2px solid white;
     border-radius: 10px;
-    letter-spacing: 1px;
-    width: 62%;
-    max-width: 1500px;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 1000px;
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    min-width: 500px;
 }
 
-.mainPage_panel {
-    width: 50%;
+.mainPage_appDescription {
+    max-width: 40%;
     min-width: 400px;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+}
+
+h2 {
     text-align: center;
-    position: relative;
+    letter-spacing: 1px;
 }
 
-#test {
-    right: 0;
-    border: 1px solid white;
-}
-
-.mainPage_panel p{
+.mainPage_appDescription p {
     font-size: 20px;
     text-align: justify;
     letter-spacing: 1px;
-    padding: 0 40px;
+    padding: 20px 30px;
 }
 
-.mainPage_panel_buttonText {
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-#mainPage_panel_buttons {
+.mainPage_userPanel {
+    flex: 1 0 auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.mainPage_userPanel div {
+    text-align: right;
+}
+
+.mainPage_userPanel div.mainPage_userPanel_buttonText{
+    text-align: center;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.mainPage_userPanel label {
+    font-size: 20px;
+}
+
+#mainPage_userPanel_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+#operationPage_userPanel_buttons {
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
-input[type=submit],
+#operationPage {
+    background-color: #222222;
+    min-width: 500px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.operationPage_nav {
+    width: 100%;
+    min-width: 200px;
+    text-align: center;
+}
+
+.operationPage_nav nav > ul {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border-radius: 8px;
+    background-color: #36b03c;
+}
+
+.operationPage_nav nav > ul > li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 10px;
+}
+
+.operationPage_nav nav > ul > li:hover {
+    background-color: #47c14d;
+    cursor: pointer;
+}
+
+.operationPage_nav nav > ul > li:first-child {
+    border-left: none;
+}
+
+.operationPage_operationPanel form {
+    text-align: center;
+}
+
+#amount_date {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+}
+
+#amount_date div {
+    padding: 0 15px;
+}
+
+#category {
+    text-align: center;
+    border: none;
+    margin: 5px 0;
+}
+
+#category div {
+    display: inline-block;
+    padding: 10px 30px;
+}
+
+#category div label{
+    letter-spacing: 2px;
+}
+
+textarea {
+    margin-bottom: 30px;
+    max-width: 600px;
+    max-height: 200px;
+    width: 80%;
+}
+
+input[type=button],
 input[type=reset] {
     width: 300px;
     background-color: #36b03c;
@@ -104,19 +199,20 @@ input[type=reset] {
     letter-spacing: 2px;
     outline: none;
     margin-top: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-input[type=submit]:focus {
+input[type=button]:focus,
+input[type=reset]:focus {
     -webkit-box-shadow: 0px 0px 5px 5px rgba(204,204,204,0.9); 
     box-shadow: 0px 0px 5px 5px rgba(204,204,204,0.9);
 }
 
-input[type=submit]:hover {
+input[type=button]:hover {
     background-color: #47c14d;
 }
 
-input[type=submit]#mainPage_panel_logIn {
+input[type=button]#mainPage_panel_logIn {
     width: 140px;
     margin-right: 20px;
 }
@@ -127,15 +223,25 @@ input[type=reset]#mainPage_panel_reset {
     margin-left: 0px;
 }
 
-input[type=submit]#mainPage_panel_back {
+input[type=reset]#mainPage_panel_reset:hover {
+    background-color: #ffaa11;
+}
+
+input[type=button]#mainPage_panel_back {
     width: 140px;
     background-color: #ff3300;
     margin-left: 20px;
 }
 
+input[type=button]#mainPage_panel_back:hover {
+    background-color: #ff4411;
+}
+
 input[type=text],
 input[type=password],
-input[type=email] {
+input[type=email],
+input[type=number],
+input[type=date] {
     width: 300px;
     background-color: #eeeeee;
     color: #666;
@@ -145,12 +251,16 @@ input[type=email] {
     padding: 10px;
     box-sizing: border-box;
     outline: none;
-    margin-top: 15px;
+    flex: 1 0 auto;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
 input[type=text]:focus,
-input[type=password]:focus {
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=date]:focus {
     -webkit-box-shadow: 0px 0px 5px 2px rgba(204,204,204,0.9); 
     box-shadow: 0px 0px 5px 2px rgba(204,204,204,0.9);
     border: 3px solid #36b03c;
@@ -158,14 +268,21 @@ input[type=password]:focus {
     color: #428c42;
 }
 
+label {
+    letter-spacing: 1px;
+}
+
 footer {
-    position: fixed;
-    width: 100%;
-    min-width: 1000px;
-    bottom: 0;
-    padding-top: 10px;
-    padding-bottom: 20px;
     font-size: 18px;
-    text-align: center;
-    background-color: #222222;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    flex-wrap: wrap;
+}
+
+footer div {
+    margin: 0 15px;
 }
