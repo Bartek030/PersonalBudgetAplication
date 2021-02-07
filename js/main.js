@@ -22,5 +22,5 @@ function setTime() {
 	$('#time').html("Godzina:&emsp;" + hour + ":" + minute + ":" + second);
 	$('#operationDate').val(year + '-' + month + '-' + day);
 		
-	setTimeout("countingDown()",1000);
+	setTimeout("setTime()",1000);
 }
