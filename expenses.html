@@ -41,20 +41,41 @@
 				</nav>
 			</div>
 			<div class="operationPage_operationPanel">
-				<h2>DODAJ PRZYCHÓD</h2>
+				<h2>DODAJ WYDATEK</h2>
 				<form>
 					<div id="amount_date">
 						<div><label>Kwota: <input type="number" step="0.01" required/></label></div>
 						<div><label>Data: <input id="operationDate" type="date" min="2000-01-01" required/></label></div>
 					</div>
-					<div id="category">
+					<div id="payment">
 						<fieldset>
-							<legend>Kategoria:</legend>
-							<div><label><input type="radio" value="1" name="category" checked />Wynagrodzenie</label></div>
-							<div><label><input type="radio" value="2" name="category" />Odsetki bankowe</label></div>
-							<div><label><input type="radio" value="3" name="category" />Sprzedaż</label></div>
-							<div><label><input type="radio" value="4" name="category" />Inne</label></div>
+							<legend>Sposób płatności:</legend>
+							<div><label><input type="radio" value="1" name="payment_type" checked>Gotówka</label></div>
+							<div><label><input type="radio" value="2" name="payment_type" >Karta debetowa</label></div>
+							<div><label><input type="radio" value="3" name="payment_type">Karta Kredytowa</label></div>
 						</fieldset>
+					</div>
+					<div id="category">
+						<label for="category_expense">Kategoria:</label>
+						<select id="category_expense" name="category_expense">
+						<option value="food">Jedzenie</option>
+						<option value="food">Mieszkanie</option>
+						<option value="food">Transport</option>
+						<option value="food">Telekomunikacja</option>
+						<option value="food">Opieka zdrowotna</option>
+						<option value="food">Ubranie</option>
+						<option value="food">Higienia</option>
+						<option value="food">Dzieci</option>
+						<option value="food">Rozrywka</option>
+						<option value="food">Wycieczka</option>
+						<option value="food">Szkolenia</option>
+						<option value="food">Książki</option>
+						<option value="food" selected>Oszczędności</option>
+						<option value="food">Na złotą jesień, czyli emeryturę</option>
+						<option value="food">Spłata długów</option>
+						<option value="food">Darowizna</option>
+						<option value="food">Inne wydatki</option>
+					</select>
 					</div>
 					<div><label for="comment">Komentarz:</label></div>
 					<textarea name="comment" id="comment" placeholder="max. 300 znaków" rows="4" cols="80" maxlength="300"></textarea>
