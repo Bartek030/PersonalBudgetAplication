@@ -15,7 +15,7 @@ function setTime() {
 	let month = currentDate.getMonth() + 1;
 	if (month<10) month = "0"+month;
 
-	let day = currentDate.getDay();
+	let day = currentDate.getDate();
 	if (day<10) day = "0"+day;
 
 	$('#date').html("Data:&emsp;&nbsp;" + day + "-" + month + "-" + year);

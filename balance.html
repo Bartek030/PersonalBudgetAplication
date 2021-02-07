@@ -55,7 +55,7 @@
 					</div>
 					<div id="userPeriod">
 						<h3>Wybierz przedział czasu:</h3>
-						<div>
+						<div id="userPeriod_choosing">
 							<div><label>Od: <input id="period_user_start" type="date" min="2000-01-01" required disabled/></label></div>
 							<div><label>Do: <input id="period_user_end" type="date" min="2000-01-01" required disabled/></label></div>
 						</div>
@@ -65,10 +65,8 @@
 			<!-- INCEOMES TABLE -->
 			<div class="table">
 				<div class="table_mainTable">
+					<h2>PRZYCHODY</h2>
 					<table>
-						<tr>
-							<td colspan="3">PRZYCHODY</td>
-						</tr>
 						<tr>
 							<td>Kategoria</td>
 							<td>Kwota</td>
@@ -81,17 +79,17 @@
 						</tr>
 						<tr>
 							<td>Odsetki bankowe</td>
-							<td>Kwota</td>
+							<td>22222</td>
 							<td>Udział procentowy</td>
 						</tr>
 						<tr>
 							<td>Sprzedaż na Allegro</td>
-							<td>Kwota</td>
+							<td>33333</td>
 							<td>Udział procentowy</td>
 						</tr>
 						<tr>
 							<td>Kategoria</td>
-							<td>Kwota</td>
+							<td>44444</td>
 							<td>Udział procentowy</td>
 						</tr>
 					</table>
@@ -103,10 +101,8 @@
 			<!-- EXPENSES TABLE -->
 			<div class="table">
 				<div class="table_mainTable">
+					<h2>WYDATKI</h2>
 					<table>
-						<tr>
-							<td colspan="3">WYDATKI</td>
-						</tr>
 						<tr>
 							<td>Kategoria</td>
 							<td>Kwota</td>
@@ -139,7 +135,24 @@
 				</div>
 			</div>
 			<!-- BALANCE -->
-			<div>bilans</div>
+			<div class="table">
+				<div class="table_mainTable">
+					<h2>BILANS</h2>
+					<table>
+						<tr>
+							<td>Przychody</td>
+							<td>Wydatki</td>
+							<td>Różnica</td>
+						</tr>
+						<tr>
+							<td>22222</td>
+							<td>11111</td>
+							<td>11111</td>
+						</tr>
+					</table>
+				</div>
+				<div class="piechart">GRATULACJE</div>
+			</div>
 		</div>
 
 		<footer>
