@@ -2,53 +2,70 @@
 <html lang="pl">
 <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
 	<title>Budżet Osobisty</title>
 	
-	<meta name="description" content="Zapanuj nad swoim domowym budżetem. Kontroluj swoje przychody i wydatki." />
-	<meta name="keywords" content="budżet, przychody, wydatki, koszty, kontroluj, organizuj, domowy, osobisty" />
+	<meta name="description" content="Zapanuj nad swoim domowym budżetem. Kontroluj swoje przychody i wydatki.">
+	<meta name="keywords" content="budżet, przychody, wydatki, koszty, kontroluj, organizuj, domowy, osobisty">
+	
 	<!-- STYLESHEETS-->
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/fontello.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	
 	<!-- FONTS-->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Russo+One&display=swap" rel="stylesheet"> 
+
+	<!-- FONT ICONS-->
+	<script src="https://kit.fontawesome.com/b13317d28d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 	<div class="container">
 		<header>
-			<div class="header_image"><i class="demo-icon icon-wallet"></i></div>
-			<h1>Budżet Osobisty</h1>
-			<div class="header_date">
-				<div id="date"></div>
-				<div id="time"></div>
+			<div id="mainHeader" class="d-flex flex-column flex-lg-row justify-content-between">
+				<div>
+					<h1 class="text-center text-lg-start"><i class="fas fa-piggy-bank"></i>&ensp;Budżet Osobisty</h>
+				</div>
+				<div id="currentTime" class="d-flex flex-lg-column align-items-end justify-content-center mb-2 mb-lg-0">
+					<div class="currentTime_box d-flex justify-content-between px-3">
+						<span>Data:</span>
+						<div id="date"></div>
+					</div>
+					<div class="currentTime_box d-flex justify-content-between px-3">
+						<span>Godzina:</span>
+						<div id="time"></div>
+					</div>
+				</div>
 			</div>
 		</header>
 
-		<div id="mainPage">
-			<div class="mainPage_appDescription">
-				<h2>Czym jest aplikacja Budżet Osobisty?</h2>
-				<p>Aplikacja Budżet Osobisty pomoże Ci zarządzać Twoimi finansami. Analizuj swoje przychody i&nbsp;kontroluj swoje wydatki. Zarządzaj efektywnie swoim budżetem i&nbsp;ciesz się zaoszczędzonymi środkami. </p>	
+		<div id="mainContainer" class="row px-5 py-4">
+			<div class="col-md-6">
+				<h2 class="h3 text-center fw-bold pb-2">Czym jest aplikacja Budżet Osobisty?</h2>
+				<p id="appDescription" class="fs-5 py-auto">Aplikacja Budżet Osobisty pomoże Ci zarządzać Twoimi finansami. Analizuj swoje przychody i&nbsp;kontroluj swoje wydatki. Zarządzaj efektywnie swoim budżetem i&nbsp;ciesz się zaoszczędzonymi środkami. </p>	
 			</div>
-			<div class="mainPage_userPanel">
-				<form>
-					<div class="mainPage_userPanel_buttonText">Aby rozpocząć:</div>
-					<div><input type="button" value="Zaloguj się" /></div>
-					<div class="mainPage_userPanel_buttonText">Lub jeśli nie masz jeszcze konta:</div>
-					<div><input type="button" value="Zarejestruj się" /></div>
-				</form>
+			<div class="col-md-6 d-grid text-center">
+				<span class="fs-4 m-2">Aby rozpocząć:</span>
+				<button type="button" class="button btn btn-lg fw-bold fs-3 my-2 mx-4">ZALOGUJ SIĘ</button>
+				<span class="fs-4 m-2">Lub jeśli nie masz jeszcze konta:</span>
+				<button type="button" class="button btn btn-lg fw-bold fs-3 my-2 mx-4">ZAREJESTRUJ SIĘ</button>
 			</div>
 		</div>
 
 		<footer>
-			<div>2021&nbsp;&copy;</div> 
-			<div>Autor:&nbsp;&nbsp;Bartłomiej Święs </div>
-			<div><i class="demo-icon icon-mail"></i>&nbsp;Kontakt:&nbsp;&nbsp;bartlomiejswies@gmail.com</div>
+			<div id="mainFooter" class="d-flex justify-content-center flex-wrap">
+				<div class="mx-2">2021&nbsp;&copy;</div>
+				<div class="mx-2">Autor:&nbsp;&nbsp;Bartłomiej Święs </div>
+				<div class="mx-2">&nbsp;Kontakt:&nbsp;&nbsp;bartlomiejswies@gmail.com</div>
+			</div>
 		</footer>
 	</div>
-	
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/main.js"></script>
 	<script>

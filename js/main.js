@@ -18,8 +18,8 @@ function setTime() {
 	let day = currentDate.getDate();
 	if (day<10) day = "0"+day;
 
-	$('#date').html("Data:&emsp;&nbsp;" + day + "-" + month + "-" + year);
-	$('#time').html("Godzina:&emsp;" + hour + ":" + minute + ":" + second);
+	$('#date').html(day + "-" + month + "-" + year);
+	$('#time').html(hour + ":" + minute + ":" + second);
 	$('#operationDate').val(year + '-' + month + '-' + day);
 		
 	setTimeout("setTime()",1000);
