@@ -72,6 +72,24 @@ h1 {
     box-shadow: 0px 0px 5px 5px rgba(204,204,204,0.9);
 }
 
+.smallOrangeButton {
+    background-color: #ff9900;
+    color: white;
+    letter-spacing: 1px;
+    width: 150px;
+    height: 40px;
+}
+
+.smallOrangeButton:hover {
+    background-color: #ffaa11;
+    color: white;
+}
+
+.smallOrangeButton:focus {
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(204,204,204,0.9); 
+    box-shadow: 0px 0px 5px 5px rgba(204,204,204,0.9);
+}
+
 .smallRedButton {
     background-color: #ff3300;
     color: white;
