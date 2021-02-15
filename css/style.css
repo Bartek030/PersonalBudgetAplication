@@ -40,6 +40,7 @@ h1 {
     background-color: #36b03c;
     color: white;
     letter-spacing: 1px;
+    width: 300px;
 }
 
 @media (max-width: 768px) {
