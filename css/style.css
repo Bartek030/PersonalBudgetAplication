@@ -156,6 +156,10 @@ label {
     #mainHeader {
         flex-direction: column;
     }
+
+    #comment {
+        width: 75% !important;
+    }
 }
 
 @media (max-width: 992px) {
