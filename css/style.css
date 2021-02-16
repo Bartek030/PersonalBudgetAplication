@@ -32,6 +32,23 @@ h1 {
     text-align: justify;
 }
 
+.mainNav {
+    background-color: #36b03c;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#mainNav_navbar a {
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+#mainNav_navbar a:hover {
+    background-color: #47c14d;
+}
+
 #mainFooter {
     font-size: 20px;
 }
@@ -138,5 +155,11 @@ label {
 
     #mainHeader {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 992px) {
+    #mainNav_navbar a {
+        text-align: center;
     }
 }
