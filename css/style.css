@@ -148,6 +148,21 @@ label {
     color: #428c42;
 }
 
+.table {
+    background-color: #333333;
+    color: white;
+    border-radius: 10px;
+}
+
+th, td {
+    border: none;
+}
+
+tbody tr:hover {
+    background-color: #444444;
+    color: white !important;
+}
+
 @media (max-width: 768px) {
     h1 {
         white-space: normal;
