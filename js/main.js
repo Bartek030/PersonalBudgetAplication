@@ -24,3 +24,5 @@ function setTime() {
 		
 	setTimeout("setTime()",1000);
 }
+
+setTime();
