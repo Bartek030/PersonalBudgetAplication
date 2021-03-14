@@ -1,3 +1,12 @@
+<?php
+	session_start();
+
+	/*if(isset($_SESSION['logged_id'])) {
+		header('Location: mainMenu.html');
+        exit();
+	}*/
+?>
+
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -49,22 +58,22 @@
 						<p id="appDescription" class="fs-5 py-auto">Aplikacja Budżet Osobisty pomoże Ci zarządzać Twoimi finansami. Analizuj swoje przychody i&nbsp;kontroluj swoje wydatki. Zarządzaj efektywnie swoim budżetem i&nbsp;ciesz się zaoszczędzonymi środkami. </p>	
 					</div>
 					<div class="col-md-6 text-center">
-						<form class="needs-validation">
+						<form action="registryValidation.php" method="POST" class="needs-validation">
 							<div class="form-group">
-								<label for="login">Podaj imię:</label>
-								<input id="login" type="text" class="form-control mx-auto my-3 userInput" placeholder="imię">
+								<label for="name">Podaj imię:</label>
+								<input id="name" name="name" type="text" class="form-control mx-auto my-3 userInput" placeholder="imię">
 							</div>
 							<div class="form-group">
 								<label for="password">Podaj hasło:</label>
-								<input id="password" type="password" class="form-control mx-auto my-3 userInput" placeholder="hasło">
+								<input id="password" name="password" type="password" class="form-control mx-auto my-3 userInput" placeholder="hasło">
 							</div>
 							<div class="form-group">
 								<label for="repeatedPassword">Powtórz hasło:</label>
-								<input id="repeatedPassword" type="password" class="form-control mx-auto my-3 userInput" placeholder="hasło">
+								<input id="repeatedPassword" name="repeatedPassword" type="password" class="form-control mx-auto my-3 userInput" placeholder="hasło">
 							</div>
 							<div class="form-group">
 								<label for="email">Podaj adres e-mail:</label>
-								<input id="email" type="email" class="form-control mx-auto my-3 userInput" placeholder="adres e-mail">
+								<input id="email" name="email" type="email" class="form-control mx-auto my-3 userInput" placeholder="adres e-mail">
 							</div>
 							<div class="mb-3">
 								<button type="submit" class="btn fw-bold mx-1 mt-4 smallGreenButton">Zarejestruj się</button>
