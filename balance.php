@@ -1,3 +1,6 @@
+<php
+	session_start();
+?>
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -51,13 +54,13 @@
 						<div class="collapse navbar-collapse" id="mainNav_navbar">
 							<ul class="navbar-nav mx-auto">
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#">Dodaj przychód</a>
+									<a class="nav-link" aria-current="page" href="incomes.php">Dodaj przychód</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#">Dodaj wydatek</a>
+									<a class="nav-link" aria-current="page" href="expenses.php">Dodaj wydatek</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#">Przeglądaj bilans</a>
+									<a class="nav-link" aria-current="page" href="balance.php">Przeglądaj bilans</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" aria-current="page" href="#">Ustawienia</a>
@@ -72,11 +75,12 @@
 				<div class="col-12 text-center">
 					<section>
 						<h2 class="h3 my-3">PRZEGLĄDAJ BILANS</h2>
-						<form class="needs-validation">
+						<form action="balanceDataHandler.php" method="POST" class="needs-validation">
 							<div>
 								<label class="my-2 h4" for="expenseCategory">Wybierz okres:</label>
-								<select id="expenseCategory" class="form-select w-50 mx-auto mb-4 userInput" aria-label="Default select example">
-									<option value="current_month" selected>Bieżący miesiąc</option>
+								<select id="balanceTime" name="balanceTime" class="form-select w-50 mx-auto mb-4 userInput" aria-label="Default select example">
+									<option selected>Wybierz okres</option>
+									<option value="current_month">Bieżący miesiąc</option>
 									<option value="previous_month">Poprzedni miesiąc</option>
 									<option value="current_year">Bieżący rok</option>
 									<option value="other_period">Inny okres</option>
@@ -86,132 +90,18 @@
 							<div class="d-flex justify-content-center flex-wrap mb-3">
 								<div class="form-group my-3">
 									<label class="me-1" for="startDate">Od:</label>
-									<input id="startDate" class="userInput" type="date" min="2000-01-01" required/>
+									<input id="startDate" name="startDate" value="<?php echo date('Y-m-d'); ?>" class="userInput" type="date" min="2000-01-01" required/>
 								</div>
 								<div class="form-group mx-3 my-3">
 									<label class="me-1" for="endDate">Do:</label>
-									<input id="endDate" class="userInput" type="date" min="2000-01-01" required/>
+									<input id="endDate" name="endDate" value="<?php echo date('Y-m-d'); ?>" class="userInput" type="date" min="2000-01-01" required/>
 								</div>
 							</div>
+							<div class="mb-4">
+								<button type="submit" class="btn fw-bold mx-1 mt-4 smallGreenButton">Przeglądaj</button>
+								<button type="reset" class="btn fw-bold mx-1 mt-4 smallOrangeButton">Wyczyść</button>
+							</div>
 						</form>
-					</section>
-					<section>
-						<div id="incomes" class="row border-top border-2">
-							<div class="col-md-8 p-3 table-responsive-md">
-								<h4 class="mb-3">PRZYCHODY</h4>
-								<table class="table table-hover">
-									<thead>
-										<tr>
-											<th scope="col">#</th>
-											<th scope="col">Kategoria</th>
-											<th scope="col">Kwota</th>
-											<th scope="col">Udział procentowy</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>Wynagrodzenie</td>
-											<td>11111</td>
-											<td>Udział procentowy</td>
-										</tr>
-										<tr>
-											<th scope="row">2</th>
-											<td>Odsetki bankowe</td>
-											<td>22222</td>
-											<td>Udział procentowy</td>
-										</tr>
-										<tr>
-											<th scope="row">3</th>
-											<td>Sprzedaż na Allegro</td>
-											<td>33333</td>
-											<td>Udział procentowy</td>
-										</tr>
-										<tr>
-											<th scope="row">4</th>
-											<td>Kategoria</td>
-											<td>44444</td>
-											<td>Udział procentowy</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="col-md-4">
-								MIEJSCE NA WYKRES KOŁOWY
-							</div>
-						</div>
-					</section>
-					<section>
-						<div id="expenses" class="row border-top border-2">
-							<div class="col-md-8 p-3 table-responsive-md">
-								<h4 class="mb-3">WYDATKI</h4>
-								<table class="table table-hover">								
-									<thead>
-										<tr>
-											<th scope="col">#</th>
-											<th scope="col">Kategoria</th>
-											<th scope="col">Kwota</th>
-											<th scope="col">Udział procentowy</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>Jedzenie</td>
-											<td>11111</td>
-											<td>Udział procentowy</td>
-										</tr>
-										<tr>
-											<th scope="row">2</th>
-											<td>Zakupy</td>
-											<td>22222</td>
-											<td>Udział procentowy</td>
-										</tr>
-										<tr>
-											<th scope="row">3</th>
-											<td>Raty</td>
-											<td>33333</td>
-											<td>Udział procentowy</td>
-										</tr>
-										<tr>
-											<th scope="row">4</th>
-											<td>Emerytura</td>
-											<td>44444</td>
-											<td>Udział procentowy</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="col-md-4">
-								MIEJSCE NA WYKRES KOŁOWY
-							</div>
-						</div>
-					</section>
-					<section>
-						<div id="balance" class="row border-top border-2">
-							<div class="col-md-8 p-3 table-responsive-md">
-								<h4 class="mb-3">BILANS</h4>
-								<table class="table table-hover">
-									<thead>
-										<tr>
-											<th scope="col">Przychody</th>
-											<th scope="col">Wydatki</th>
-											<th scope="col">Różnica</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<th scope="row">22222</th>
-											<td>11111</td>
-											<td>11111</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="col-md-4">
-								GRATULACJE
-							</div>
-						</div>
 					</section>
 				</div>
 			</div>
