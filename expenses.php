@@ -1,3 +1,6 @@
+<php
+	session_start();
+?>
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -51,13 +54,13 @@
 						<div class="collapse navbar-collapse" id="mainNav_navbar">
 							<ul class="navbar-nav mx-auto">
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#">Dodaj przychód</a>
+									<a class="nav-link" aria-current="page" href="incomes.php">Dodaj przychód</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#">Dodaj wydatek</a>
+									<a class="nav-link" aria-current="page" href="expenses.php">Dodaj wydatek</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#">Przeglądaj bilans</a>
+									<a class="nav-link" aria-current="page" href="balance.php">Przeglądaj bilans</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" aria-current="page" href="#">Ustawienia</a>
@@ -72,58 +75,58 @@
 				<div class="col-12 text-center">
 					<section>
 						<h2 class="h3 my-3">DODAJ WYDATEK</h2>
-						<form class="needs-validation">
+						<form action="expensesDataHandler.php" method="POST" class="needs-validation">
 							<div class="d-flex flex-wrap justify-content-center mb-3">
 								<div class="form-group mx-3 my-3">
 									<label class="me-1" for="amount">Kwota:</label>
-									<input id="amount" class="userInput" type="number" step="0.01" required/>
+									<input id="amount" name="amount" class="userInput" type="number" step="0.01" required/>
 								</div>
 								<div class="form-group mx-3 my-3">
 									<label class="ms-3 me-1" for="operationDate">Data:</label>
-									<input id="operationDate" class="userInput" type="date" min="2000-01-01" required/>
+									<input id="operationDate" name="operationDate" class="userInput" type="date" min="2000-01-01" required/>
 								</div>
 							</div>
 							<div class="d-flex justify-content-center mb-3">
 								<fieldset>
 									<legend class="my-2">Sposób płatności:</legend>
 									<div class="form-check form-check-inline mx-2">
-										<input class="form-check-input" type="radio" name="category" checked>
+										<input class="form-check-input" type="radio" name="paymentMethod" value="Gotówka" checked>
 										<label class="form-check-label">Gotówka</label>
 									</div>
 									<div class="form-check form-check-inline mx-2">
-										<input class="form-check-input" type="radio" name="category">
+										<input class="form-check-input" type="radio" name="paymentMethod" value="Karta debetowa">
 										<label class="form-check-label">Karta debetowa</label>
 									</div>
 									<div class="form-check form-check-inline mx-2">
-										<input class="form-check-input" type="radio" name="category">
+										<input class="form-check-input" type="radio" name="paymentMethod" value="Karta kredytowa">
 										<label class="form-check-label">Karta kredytowa</label>
 									</div>
 								</fieldset>
 							</div>
 							<label class="mb-2" for="expenseCategory">Kategoria:</label>
-							<select id="expenseCategory" class="form-select w-50 mx-auto mb-4" aria-label="Default select example">
+							<select id="expenseCategory" name="category" class="form-select w-50 mx-auto mb-4" aria-label="Default select example">
 								<option selected>Wybierz kategorię</option>
-								<option value="food">Jedzenie</option>
-								<option value="flat">Mieszkanie</option>
-								<option value="transport">Transport</option>
-								<option value="telecomm">Telekomunikacja</option>
-								<option value="health">Opieka zdrowotna</option>
-								<option value="clothes">Ubranie</option>
-								<option value="hygiene">Higienia</option>
-								<option value="children">Dzieci</option>
-								<option value="recreation">Rozrywka</option>
-								<option value="trip">Wycieczka</option>
-								<option value="schooling">Szkolenia</option>
-								<option value="books">Książki</option>
-								<option value="savings">Oszczędności</option>
-								<option value="retirement">Na złotą jesień, czyli emeryturę</option>
-								<option value="debts">Spłata długów</option>
-								<option value="charity">Darowizna</option>
-								<option value="other">Inne wydatki</option>
+								<option value="Jedzenie">Jedzenie</option>
+								<option value="Mieszkanie">Mieszkanie</option>
+								<option value="Transport">Transport</option>
+								<option value="Telekomunikacja">Telekomunikacja</option>
+								<option value="Opieka zdrowotna">Opieka zdrowotna</option>
+								<option value="Ubranie">Ubranie</option>
+								<option value="Higienia">Higienia</option>
+								<option value="Dzieci">Dzieci</option>
+								<option value="Rozrywka">Rozrywka</option>
+								<option value="Rekreacja">Rekreacja</option>
+								<option value="Szkolenia">Szkolenia</option>
+								<option value="Książki">Książki</option>
+								<option value="Oszczędności">Oszczędności</option>
+								<option value="Na emeryturę">Na złotą jesień, czyli emeryturę</option>
+								<option value="Spłata długów">Spłata długów</option>
+								<option value="Darowizna">Darowizna</option>
+								<option value="Inne">Inne wydatki</option>
 							</select>
 							<div class="mb-3">
 								<label for="comment" class="form-label">Komentarz:</label>
-								<textarea class="form-control w-50 mx-auto" id="comment" placeholder="max. 300 znaków" rows="4" cols="80" maxlength="300"></textarea>
+								<textarea class="form-control w-50 mx-auto" id="comment" name="comment" placeholder="max. 100 znaków" rows="4" cols="80" maxlength="100"></textarea>
 							</div>
 							<div class="mb-4">
 								<button type="submit" class="btn fw-bold mx-1 mt-4 smallGreenButton">Dodaj</button>

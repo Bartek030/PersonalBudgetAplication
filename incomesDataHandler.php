@@ -2,7 +2,6 @@
     session_start();
 
     if(isset($_POST['amount']) && isset($_POST['operationDate']) && isset($_POST['category'])) {
-        $formValidation = true;
 
         /* Assigning input values to variables */
         $amount = filter_input(INPUT_POST, 'amount');
