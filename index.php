@@ -1,3 +1,10 @@
+<?php
+	session_start();
+
+	if(isset($_SESSION['logged_id'])) {
+		header('Location: mainMenu.php');
+	}
+?>
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
