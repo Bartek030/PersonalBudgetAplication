@@ -1,5 +1,8 @@
-<php
+<?php
 	session_start();
+
+	$incomes = $_SESSION['incomesTable'];
+	$expenses = $_SESSION['expensesTable'];
 ?>
 <!DOCTYPE HTML>
 <html lang="pl">
@@ -102,6 +105,112 @@
 								<button type="reset" class="btn fw-bold mx-1 mt-4 smallOrangeButton">Wyczyść</button>
 							</div>
 						</form>
+					</section>
+					<section>
+						<div id="incomes" class="row border-top border-2">
+							<div class="col-md-8 p-3 table-responsive-md">
+								<h4 class="mb-3">PRZYCHODY</h4>
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">Kategoria</th>
+											<th scope="col">Kwota</th>
+											<th scope="col">Data operacji</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+											$i = 1;
+											foreach($incomes as $singleIncome){
+												echo '<tr>';
+												echo '<th scope="row">' . $i . '</th>';
+												echo '<td>' . $singleIncome[0] . '</td>';
+												echo '<td>' . $singleIncome[1] . '</td>';
+												echo '<td>' . $singleIncome[2] . '</td>';
+												echo '</tr>';
+												$i = $i + 1;
+											}
+										?>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-md-4">
+								MIEJSCE NA WYKRES KOŁOWY
+							</div>
+						</div>
+					</section>
+					<section>
+						<div id="expenses" class="row border-top border-2">
+							<div class="col-md-8 p-3 table-responsive-md">
+								<h4 class="mb-3">WYDATKI</h4>
+								<table class="table table-hover">								
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">Kategoria</th>
+											<th scope="col">Kwota</th>
+											<th scope="col">Udział procentowy</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+											$i = 1;
+											foreach($expenses as $singleExpense) {
+												echo '<tr>';
+												echo '<th scope="row">' . $i . '</th>';
+												echo '<td>' . $singleExpense[0] . '</td>';
+												echo '<td>' . $singleExpense[1] . '</td>';
+												echo '<td>' . $singleExpense[2] . '</td>';
+												echo '</tr>';
+												$i = $i + 1;
+											}
+										?>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-md-4">
+								MIEJSCE NA WYKRES KOŁOWY
+							</div>
+						</div>
+					</section>
+					<section>
+						<div id="balance" class="row border-top border-2">
+							<div class="col-md-8 p-3 table-responsive-md">
+								<h4 class="mb-3">BILANS</h4>
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th scope="col">Przychody</th>
+											<th scope="col">Wydatki</th>
+											<th scope="col">Różnica</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<?php
+												$incomeSummary = 0;
+												$expenseSummary = 0;
+												foreach($incomes as $singleIncome) {
+													$incomeSummary = $incomeSummary + $singleIncome[1];
+												}
+												foreach($expenses as $singleExpense) {
+													$expenseSummary = $expenseSummary + $singleExpense[1];
+												}
+												$balance = $incomeSummary - $expenseSummary;
+
+												echo '<th scope="row">' . $incomeSummary . '</th>';
+												echo '<td>' . $expenseSummary . '</td>';
+												echo '<td>' . $balance . '</td>';												
+											?>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-md-4">
+								GRATULACJE
+							</div>
+						</div>
 					</section>
 				</div>
 			</div>
