@@ -1,7 +1,12 @@
 <?php
-	session_start();
+    session_start();
+    unset($_SESSION['errorName']);
+    unset($_SESSION['errorPassword']);
+    unset($_SESSION['errorPassword2']);
+    unset($_SESSION['errorEmail']);
+    unset($_SESSION['name']);
+    unset($_SESSION['email']);
 ?>
-
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -52,43 +57,9 @@
 						<h2 class="h3 text-center fw-bold pb-2">Czym jest aplikacja Budżet Osobisty?</h2>
 						<p id="appDescription" class="fs-5 py-auto">Aplikacja Budżet Osobisty pomoże Ci zarządzać Twoimi finansami. Analizuj swoje przychody i&nbsp;kontroluj swoje wydatki. Zarządzaj efektywnie swoim budżetem i&nbsp;ciesz się zaoszczędzonymi środkami. </p>	
 					</div>
-					<div class="col-md-6 text-center">
-						<form action="registryValidation.php" method="POST" class="needs-validation">
-							<div class="form-group">
-								<label for="name">Podaj imię:</label>
-								<input id="name" name="name" type="text" class="form-control mx-auto my-3 userInput" placeholder="imię" 
-								<?= isset($_SESSION['name']) ? 'value="' . $_SESSION['name'] . '"' : '' ?>>
-								<span class="text-danger">
-									<?= isset($_SESSION['errorName']) ? $_SESSION['errorName'] : ''?>
-								</span>
-							</div>
-							<div class="form-group">
-								<label for="password">Podaj hasło:</label>
-								<input id="password" name="password" type="password" class="form-control mx-auto my-3 userInput" placeholder="hasło">
-								<span class="text-danger">
-									<?= isset($_SESSION['errorPassword']) ? $_SESSION['errorPassword'] : ''?>
-								</span>
-							</div>
-							<div class="form-group">
-								<label for="repeatedPassword">Powtórz hasło:</label>
-								<input id="repeatedPassword" name="repeatedPassword" type="password" class="form-control mx-auto my-3 userInput" placeholder="hasło">
-								<span class="text-danger">
-									<?= isset($_SESSION['errorPassword2']) ? $_SESSION['errorPassword2'] : ''?>
-								</span>
-							</div>
-							<div class="form-group">
-								<label for="email">Podaj adres e-mail:</label>
-								<input id="email" name="email" type="email" class="form-control mx-auto my-3 userInput" placeholder="adres e-mail" <?= isset($_SESSION['email']) ? 'value="' . $_SESSION['email'] . '"' : '' ?>>
-								<span class="text-danger">
-									<?= isset($_SESSION['errorEmail']) ? $_SESSION['errorEmail'] : ''?>
-								</span>
-							</div>
-							<div class="mb-3">
-								<button type="submit" class="btn fw-bold mx-1 mt-4 smallGreenButton">Zarejestruj się</button>
-								<button type="reset" class="btn fw-bold mx-1 mt-4 smallOrangeButton">Wyczyść</button>
-								<a href="index.php"><button type="button" class="btn fw-bold mx-1 mt-4 smallRedButton">Powrót</button></a>
-							</div>
-						</form>
+					<div class="col-md-6 d-grid text-center">
+						<span class="fs-4 m-2">Dziękujemy za rejestrację!</span>
+                        <a href="index.php"><button type="button" class="btn fw-bold mx-1 smallGreenButton">Kontynuuj</button></a>
 					</div>
 				</div>
 			</section>

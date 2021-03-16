@@ -1,5 +1,9 @@
 <?php
     session_start();
+    unset($_SESSION['errorName']);
+    unset($_SESSION['errorPassword']);
+    unset($_SESSION['errorPassword2']);
+    unset($_SESSION['errorEmail']);
 
     if(isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])) {
         $credentialValidation = true;
@@ -10,24 +14,25 @@
         $repeatedPassword = filter_input(INPUT_POST, 'repeatedPassword');
         $email = filter_input(INPUT_POST, 'email');
 
+        $_SESSION['name'] = $name;
+        $_SESSION['email'] = $email;
+
         /* Basic validation */
-        if((strlen($name) < 3) || ((strlen($name) > 15))) {
-            $credentialValidation = false;
-            $_SESSION['errorName'] = "Imie musi posiadać od 3 do 15 znaków!";
-        }
         if(!ctype_alpha($name)) {
             $credentialValidation = false;
             $_SESSION['errorName'] = "Imię może składać się tylko z liter (bez polskich znaków)";
         }
-
+        if((strlen($name) < 3) || ((strlen($name) > 15))) {
+            $credentialValidation = false;
+            $_SESSION['errorName'] = "Imie musi posiadać od 3 do 15 znaków!";
+        }
         if((strlen($password) < 8) || (strlen($password) > 20)) {
             $credentialValidation = false;
             $_SESSION['errorPassword'] = "Hasło musi posiadać od 8 do 20 znaków";
         }
-
         if($password != $repeatedPassword) {
             $credentialValidation = false;
-            $_SESSION['errorPassword'] = "Podane hasła nie są identyczne";
+            $_SESSION['errorPassword2'] = "Podane hasła nie są identyczne";
         }
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -50,6 +55,8 @@
         if($user) {
             $credentialValidation = false;
             $_SESSION['errorEmail'] = "Istnieje już konto przypisane do tego adresu e-mail.";
+            /*header('Location: registry.php');
+            exit();*/
         }
 
         if($credentialValidation) {
@@ -83,6 +90,13 @@
                                             FROM users AS u, payment_methods_default AS pay 
                                             WHERE u.id = $registeredUserID");
             $paymentQuery -> execute();
+            header('Location: registryConfirmation.php');
+            exit();
+        } else {
+            header('Location: registry.php');
+            exit();
         }
-    } 
+    } else {
+        header('Location: registry.php');
+    }
 ?>
