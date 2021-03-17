@@ -1,5 +1,10 @@
-<php
+<?php
 	session_start();
+
+	if(!isset($_SESSION['logged_id'])) {
+		header('Location: index.php');
+		exit();
+	}
 ?>
 <!DOCTYPE HTML>
 <html lang="pl">
@@ -66,7 +71,7 @@
 									<a class="nav-link" aria-current="page" href="#">Ustawienia</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#">Wyloguj się</a>
+									<a class="nav-link" aria-current="page" href="index.php">Wyloguj się</a>
 								</li>
 							</ul>
 						</div>
@@ -114,7 +119,7 @@
 							<div class="mb-4">
 								<button type="submit" class="btn fw-bold mx-1 mt-4 smallGreenButton">Dodaj</button>
 								<button type="reset" class="btn fw-bold mx-1 mt-4 smallOrangeButton">Wyczyść</button>
-								<button type="button" class="btn fw-bold mx-1 mt-4 smallRedButton">Anuluj</button>
+								<a href="mainMenu.php"><button type="button" class="btn fw-bold mx-1 mt-4 smallRedButton">Anuluj</button></a>
 							</div>
 						</form>
 					</section>

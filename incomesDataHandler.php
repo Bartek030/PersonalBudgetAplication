@@ -28,5 +28,7 @@
         $incomeQuery -> bindValue(':amount', $amount, PDO::PARAM_STR);
         $incomeQuery -> bindValue(':comment', $comment, PDO::PARAM_STR);
         $incomeQuery -> execute();
+
+        header('Location: incomeConfirmation.php');
     }
 ?>
