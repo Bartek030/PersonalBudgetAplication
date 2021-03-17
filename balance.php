@@ -1,8 +1,14 @@
 <?php
 	session_start();
 
-	$incomes = $_SESSION['incomesTable'];
-	$expenses = $_SESSION['expensesTable'];
+	if(!isset($_SESSION['logged_id'])) {
+		header('Location: index.php');
+		exit();
+	}
+	if(isset($_SESSION['balanceOption'])) {
+		$incomes = $_SESSION['incomesTable'];
+		$expenses = $_SESSION['expensesTable'];
+	}
 ?>
 <!DOCTYPE HTML>
 <html lang="pl">
@@ -69,7 +75,7 @@
 									<a class="nav-link" aria-current="page" href="#">Ustawienia</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#">Wyloguj się</a>
+									<a class="nav-link" aria-current="page" href="index.php">Wyloguj się</a>
 								</li>
 							</ul>
 						</div>
@@ -82,12 +88,15 @@
 							<div>
 								<label class="my-2 h4" for="expenseCategory">Wybierz okres:</label>
 								<select id="balanceTime" name="balanceTime" class="form-select w-50 mx-auto mb-4 userInput" aria-label="Default select example">
-									<option selected>Wybierz okres</option>
+									<option value="none" selected>Wybierz okres</option>
 									<option value="current_month">Bieżący miesiąc</option>
 									<option value="previous_month">Poprzedni miesiąc</option>
 									<option value="current_year">Bieżący rok</option>
 									<option value="other_period">Inny okres</option>
 								</select>
+								<span class="text-danger">
+									<?= isset($_SESSION['errorTime']) ? $_SESSION['errorTime'] : ''?>
+								</span>
 							</div>
 							<h3 class="h4">Wybierz przedział czasu:</h3>
 							<div class="d-flex justify-content-center flex-wrap mb-3">
@@ -103,6 +112,7 @@
 							<div class="mb-4">
 								<button type="submit" class="btn fw-bold mx-1 mt-4 smallGreenButton">Przeglądaj</button>
 								<button type="reset" class="btn fw-bold mx-1 mt-4 smallOrangeButton">Wyczyść</button>
+								<a href="mainMenu.php"><button type="button" class="btn fw-bold mx-1 mt-4 smallRedButton">Powrót</button></a>
 							</div>
 						</form>
 					</section>
@@ -120,16 +130,18 @@
 										</tr>
 									</thead>
 									<tbody>
-										<?php
-											$i = 1;
-											foreach($incomes as $singleIncome){
-												echo '<tr>';
-												echo '<th scope="row">' . $i . '</th>';
-												echo '<td>' . $singleIncome[0] . '</td>';
-												echo '<td>' . $singleIncome[1] . '</td>';
-												echo '<td>' . $singleIncome[2] . '</td>';
-												echo '</tr>';
-												$i = $i + 1;
+										<?php									
+											if(isset($_SESSION['balanceOption'])) {
+												$i = 1;
+												foreach($incomes as $singleIncome){
+													echo '<tr>';
+													echo '<th scope="row">' . $i . '</th>';
+													echo '<td>' . $singleIncome[0] . '</td>';
+													echo '<td>' . $singleIncome[1] . '</td>';
+													echo '<td>' . $singleIncome[2] . '</td>';
+													echo '</tr>';
+													$i = $i + 1;
+												}
 											}
 										?>
 									</tbody>
@@ -155,15 +167,17 @@
 									</thead>
 									<tbody>
 										<?php
-											$i = 1;
-											foreach($expenses as $singleExpense) {
-												echo '<tr>';
-												echo '<th scope="row">' . $i . '</th>';
-												echo '<td>' . $singleExpense[0] . '</td>';
-												echo '<td>' . $singleExpense[1] . '</td>';
-												echo '<td>' . $singleExpense[2] . '</td>';
-												echo '</tr>';
-												$i = $i + 1;
+											if(isset($_SESSION['balanceOption'])) {
+												$i = 1;
+												foreach($expenses as $singleExpense) {
+													echo '<tr>';
+													echo '<th scope="row">' . $i . '</th>';
+													echo '<td>' . $singleExpense[0] . '</td>';
+													echo '<td>' . $singleExpense[1] . '</td>';
+													echo '<td>' . $singleExpense[2] . '</td>';
+													echo '</tr>';
+													$i = $i + 1;
+												}
 											}
 										?>
 									</tbody>
@@ -189,19 +203,21 @@
 									<tbody>
 										<tr>
 											<?php
-												$incomeSummary = 0;
-												$expenseSummary = 0;
-												foreach($incomes as $singleIncome) {
-													$incomeSummary = $incomeSummary + $singleIncome[1];
-												}
-												foreach($expenses as $singleExpense) {
-													$expenseSummary = $expenseSummary + $singleExpense[1];
-												}
-												$balance = $incomeSummary - $expenseSummary;
+												if(isset($_SESSION['balanceOption'])) {
+													$incomeSummary = 0;
+													$expenseSummary = 0;
+													foreach($incomes as $singleIncome) {
+														$incomeSummary = $incomeSummary + $singleIncome[1];
+													}
+													foreach($expenses as $singleExpense) {
+														$expenseSummary = $expenseSummary + $singleExpense[1];
+													}
+													$balance = $incomeSummary - $expenseSummary;
 
-												echo '<th scope="row">' . $incomeSummary . '</th>';
-												echo '<td>' . $expenseSummary . '</td>';
-												echo '<td>' . $balance . '</td>';												
+													echo '<th scope="row">' . $incomeSummary . '</th>';
+													echo '<td>' . $expenseSummary . '</td>';
+													echo '<td>' . $balance . '</td>';		
+												}										
 											?>
 										</tr>
 									</tbody>

@@ -1,6 +1,11 @@
 <?php
 	session_start();
 	unset($_SESSION['errorCategory']);
+	unset($_SESSION['balanceOption']);
+	unset($_SESSION['errorTime']);
+	unset($_SESSION['incomesTable']);
+	unset($_SESSION['expensesTable']);
+
 	if(!isset($_SESSION['logged_id'])) {
 		header('Location: index.php');
 		exit();

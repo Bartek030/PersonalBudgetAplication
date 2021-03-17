@@ -1,9 +1,15 @@
 <?php
     session_start();
 
+    if(!isset($_SESSION['logged_id'])) {
+		header('Location: index.php');
+		exit();
+	}
+
     /* Preparing object with current date */
     $date = new DateTime();
     $userID = $_SESSION['logged_id'];
+    $_SESSION['balanceOption'] = true;
 
     /* Connecting with database */
     require_once 'database.php';
@@ -22,8 +28,6 @@
         $incomesQuery -> execute();
         $incomes = $incomesQuery -> fetchAll();
 
-       /* print_r($incomes);
-
         /* Requesting for expenses from period of time */
         $expensesQuery = $db -> prepare("SELECT exp.name, expenses.amount, expenses.date_of_expense
                                         FROM expenses_category_assigned_to_users AS exp, expenses
@@ -33,8 +37,12 @@
                                         AND expenses.date_of_expense <= '$endDate'");
         $expensesQuery -> execute();
         $expenses = $expensesQuery -> fetchAll();
+        unset($_SESSION['errorTime']);
 
-       /* print_r($expenses); exit(); /* To do tabeli */
+    } else if ($_POST['balanceTime'] == "none") {
+        $_SESSION['errorTime'] = "Wybierz okres!";
+        header('Location: balance.php');
+        exit();
     } else {
         if($_POST['balanceTime'] == "current_month") {
             $time = $date -> format('Y-m');
@@ -67,8 +75,6 @@
         $incomesQuery -> execute();
         $incomes = $incomesQuery -> fetchAll();
     
-        /*print_r($incomes); /* To do tabeli */
-    
         /* Requesting for expenses */
         $expensesQuery = $db -> prepare("SELECT exp.name, expenses.amount, expenses.date_of_expense
                                         FROM expenses_category_assigned_to_users AS exp, expenses
@@ -77,8 +83,7 @@
                                         AND expenses.date_of_expense LIKE '$time%'");
         $expensesQuery -> execute();
         $expenses = $expensesQuery -> fetchAll();
-    
-       /* print_r($expenses); exit(); /* To do tabeli */
+        unset($_SESSION['errorTime']);
     }
 
     $_SESSION['incomesTable'] = $incomes;
