@@ -1,6 +1,11 @@
 <?php
     session_start();
 
+    if(!isset($_SESSION['logged_id'])) {
+		header('Location: index.php');
+		exit();
+	}
+
     if(isset($_POST['amount']) && isset($_POST['operationDate']) && isset($_POST['category']) && isset($_POST['paymentMethod'])) {
 
         /* Assigning input values to variables */
@@ -10,6 +15,14 @@
         $paymentMethod = filter_input(INPUT_POST, 'paymentMethod');
         $comment = filter_input(INPUT_POST, 'comment');
         $userID = $_SESSION['logged_id'];
+
+        if($category == "none") {
+            $_SESSION['errorCategory'] = "Wybierz kategorię!";
+            header('Location: expenses.php');
+            exit();
+        } else {
+            unset($_SESSION['errorCategory']);
+        }
 
         /* Connecting with database */
         require_once 'database.php';
@@ -38,5 +51,7 @@
         $expenseQuery -> bindValue(':amount', $amount, PDO::PARAM_STR);
         $expenseQuery -> bindValue(':comment', $comment, PDO::PARAM_STR);
         $expenseQuery -> execute();
+
+        header('Location: expenseConfirmation.php');
     }
 ?>

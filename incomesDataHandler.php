@@ -1,6 +1,11 @@
 <?php
     session_start();
 
+    if(!isset($_SESSION['logged_id'])) {
+		header('Location: index.php');
+		exit();
+	}
+
     if(isset($_POST['amount']) && isset($_POST['operationDate']) && isset($_POST['category'])) {
 
         /* Assigning input values to variables */

@@ -1,5 +1,10 @@
-<php
+<?php
 	session_start();
+
+	if(!isset($_SESSION['logged_id'])) {
+		header('Location: index.php');
+		exit();
+	}
 ?>
 <!DOCTYPE HTML>
 <html lang="pl">
@@ -66,7 +71,7 @@
 									<a class="nav-link" aria-current="page" href="#">Ustawienia</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" aria-current="page" href="#">Wyloguj się</a>
+									<a class="nav-link" aria-current="page" href="index.php">Wyloguj się</a>
 								</li>
 							</ul>
 						</div>
@@ -105,7 +110,7 @@
 							</div>
 							<label class="mb-2" for="expenseCategory">Kategoria:</label>
 							<select id="expenseCategory" name="category" class="form-select w-50 mx-auto mb-4" aria-label="Default select example">
-								<option selected>Wybierz kategorię</option>
+								<option value="none" selected>Wybierz kategorię</option>
 								<option value="Jedzenie">Jedzenie</option>
 								<option value="Mieszkanie">Mieszkanie</option>
 								<option value="Transport">Transport</option>
@@ -124,6 +129,9 @@
 								<option value="Darowizna">Darowizna</option>
 								<option value="Inne">Inne wydatki</option>
 							</select>
+							<span class="text-danger">
+									<?= isset($_SESSION['errorCategory']) ? $_SESSION['errorCategory'] : ''?>
+								</span>
 							<div class="mb-3">
 								<label for="comment" class="form-label">Komentarz:</label>
 								<textarea class="form-control w-50 mx-auto" id="comment" name="comment" placeholder="max. 100 znaków" rows="4" cols="80" maxlength="100"></textarea>
@@ -131,7 +139,7 @@
 							<div class="mb-4">
 								<button type="submit" class="btn fw-bold mx-1 mt-4 smallGreenButton">Dodaj</button>
 								<button type="reset" class="btn fw-bold mx-1 mt-4 smallOrangeButton">Wyczyść</button>
-								<button type="button" class="btn fw-bold mx-1 mt-4 smallRedButton">Anuluj</button>
+								<a href="mainMenu.php"><button type="button" class="btn fw-bold mx-1 mt-4 smallRedButton">Anuluj</button></a>
 							</div>
 						</form>
 					</section>

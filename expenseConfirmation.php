@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	unset($_SESSION['errorCategory']);
+	
 	if(!isset($_SESSION['logged_id'])) {
 		header('Location: index.php');
 		exit();
@@ -78,8 +79,9 @@
 							</div>
 						</div>
 					</nav>
-					<div class="col-12">
-						<h2 class="h3 my-3 text-center">WYBIERZ OPCJĘ Z MENU</h2>
+					<div class="col-12 text-center">
+						<h2 class="h3 my-3">WYDATEK ZOSTAŁ DODANY!</h2>
+						<a href="expenses.php"><button type="button" class="btn fw-bold my-4 smallGreenButton">Kontynuuj</button></a>
 					</div>
 				</div>
 			</section>
