@@ -77,7 +77,7 @@
 										<a class="nav-link" aria-current="page" href="#">Ustawienia</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" aria-current="page" href="index.php">Wyloguj się</a>
+										<a class="nav-link" aria-current="page" href="logout.php">Wyloguj się</a>
 									</li>
 								</ul>
 							</div>
