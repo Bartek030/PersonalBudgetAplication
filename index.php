@@ -4,6 +4,15 @@
 	if(isset($_SESSION['logged_id'])) {
 		header('Location: mainMenu.php');
 	}
+
+	unset($_SESSION['errorName']);
+    unset($_SESSION['errorPassword']);
+    unset($_SESSION['errorPassword2']);
+    unset($_SESSION['errorEmail']);
+    unset($_SESSION['name']);
+    unset($_SESSION['email']);
+	unset($_SESSION['login']);
+	unset($_SESSION['error']);
 ?>
 <!DOCTYPE HTML>
 <html lang="pl">

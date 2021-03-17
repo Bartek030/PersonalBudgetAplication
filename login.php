@@ -1,10 +1,10 @@
 <?php
 	session_start();
 
-	/*if(isset($_SESSION['logged_id'])) {
+	if(isset($_SESSION['logged_id'])) {
 		header('Location: mainMenu.html');
         exit();
-	}*/
+	}
 ?>
 <!DOCTYPE HTML>
 <html lang="pl">
@@ -59,15 +59,19 @@
 					<div class="col-md-6 text-center">
 						<form action="loginValidation.php" method="POST"  class="needs-validation">
 							<div class="form-group">
-								<label for="login">Podaj login:</label>
-								<input id="login" name="login" type="text" class="form-control mx-auto my-3 userInput" placeholder="login">
+								<label for="login">Podaj email:</label>
+								<input id="login" name="login" type="text" class="form-control mx-auto my-3 userInput" placeholder="login"
+								<?= isset($_SESSION['login']) ? 'value="' . $_SESSION['login'] . '"' : '' ?>>								
 							</div>
 							<div class="form-group">
 								<label for="password">Podaj hasło:</label>
 								<input id="password" name="password" type="password" class="form-control mx-auto my-3 userInput" placeholder="hasło">
+								<span class="text-danger">
+									<?= isset($_SESSION['error']) ? $_SESSION['error'] : ''?>
+								</span>
 							</div>
 							<button type="submit" class="btn fw-bold mx-1 mt-4 smallGreenButton">Zaloguj się</button>
-							<button type="button" class="btn fw-bold mx-1 mt-4 smallRedButton">Powrót</button>
+							<a href="index.php"><button type="button" class="btn fw-bold mx-1 mt-4 smallRedButton">Powrót</button></a>
 						</form>
 					</div>
 				</div>
