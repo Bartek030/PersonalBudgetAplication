@@ -1,3 +1,11 @@
+<?php
+	session_start();
+
+	if(!isset($_SESSION['logged_id'])) {
+		header('Location: index.php');
+		exit();
+	}
+?>
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -64,7 +72,7 @@
 										<a class="nav-link" aria-current="page" href="#">Ustawienia</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" aria-current="page" href="#">Wyloguj się</a>
+										<a class="nav-link" aria-current="page" href="index.php">Wyloguj się</a>
 									</li>
 								</ul>
 							</div>

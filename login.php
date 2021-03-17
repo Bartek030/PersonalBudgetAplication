@@ -2,7 +2,7 @@
 	session_start();
 
 	if(isset($_SESSION['logged_id'])) {
-		header('Location: mainMenu.html');
+		header('Location: mainMenu.php');
         exit();
 	}
 ?>
